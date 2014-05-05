@@ -1,0 +1,89 @@
+{% extends 'BaseApp/application.html' %}
+
+{% block mainarea %}
+    {% if user.is_anonymous %}
+            <form action="{% url 'tutor_service:login' %}" method="POST">{% csrf_token %}
+                {% for loginform in f %}
+                    {{loginform}}
+                {% endfor %}
+                <input type="submit" value="Вход">
+            </form>
+				<br><span class="link"><a href="{% url 'tutor_service:registration' %}" id="reg">Регистрация</a></span>
+				<br><span class="link"><a href="#">Забыли пароль?</a></span>
+     {% endif %}
+{% endblock %}
+
+{% block mail %}
+        {% if user.is_authenticated %}
+        <div class="mail">
+
+               {% for e in email.mail_set.all %}
+                     <p>{{e.from_email}}</p><br>
+                     <p>{{e.from_user}}</p><br>
+                        {% for messages in e.messages_set.all %}
+                            <p>{{messages.message}}</p><br>
+                        {% endfor %}
+                     <p>{{e.date}}</p><br>
+                     <div class="send message">
+                        <form action="#" method="post">{% csrf_token %}
+                            <input type="hidden" name="click" value="confirm"/>
+                            <input type="hidden" name="to_email" value="{{e.from_email}}"/>
+                            <input type="submit" value="Подтвердить"/>
+                        </form>
+                        <form action="#" method="post">{% csrf_token %}
+                            <input type="hidden" name="click" value="denial"/>
+                            <input type="hidden" name="to_email" value="{{e.from_email}}"/>
+                            <input type="submit" value="Откланить"/>
+                        </form>
+                     </div>
+               {% endfor %}
+        </div>
+        {% endif %}
+{% endblock %}
+
+{% block list %}
+        <div>
+
+                {% for user in custom_user %}
+
+                    {% if is_authenticated %}
+                        <div style="float: right">
+                            Отправить заявку: <input type="checkbox" ng-model="open"/>
+                            <div ng-show="open">
+                                 <form action="{% url 'tutor_service:send_contact_form' %}" method="post"> {% csrf_token %}
+                                        {{ contact_form.as_p }}
+                                        <input type="hidden" name="to_email" value="{{ user.email }}">
+                                        <input type="submit" name="send_statement" value="Отправить" class="btn-navbar" ng-model="send"/>
+                                 </form>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div>
+                        {{ user.first_name }}
+                        {{ user.patronymic }}
+                    </div>
+
+                    {% for tutors in user.tutor_set.all %}
+                        <img class="img-thumbnail" src="/media/{{ tutors.avatar }}" width="20%"/>
+                        <p>{{tutors.rating}}</p>
+                        <p>{{tutors.experience}}</p>
+                        <p>{{tutors.education}}</p>
+                        <p>{{tutors.work}}</p>
+                        <p>{{tutors.venue_of}}</p>
+
+                    {% endfor %}
+
+                    {% for add in user.additional_information_set.all %}
+                        <p>{{add.subject_name}}</p>
+                        <p>{{add.section}}</p>
+                        <p>{{add.additions}}</p>
+                        <p>{{add.pupil_category}}</p>
+                        <p>{{add.price}}</p>
+                    {% endfor %}
+                <hr>
+
+                {% endfor %}
+
+        </div>
+{% endblock %}

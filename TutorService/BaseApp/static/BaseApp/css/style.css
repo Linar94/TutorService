@@ -1,0 +1,296 @@
+body {
+	padding: 0;
+	margin: 0;
+	background: #FFFFFF;
+}
+
+.body {
+	height: 1720px;
+	width: 1280px;
+	margin: 0 auto;
+}
+
+.header {
+	position: relative;
+	border-bottom: 2px solid #e0edf9;
+}
+
+.do {
+	display: none;
+	background: gray;
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	opacity: 0.7;
+	z-index: 998;	
+}
+
+.form {
+	background: white;
+	border: 1px solid black;
+	border-radius: 5px;
+	position: fixed;
+	top: -505px;
+	left: 400px;
+	height: 500px;
+	width: 430px;
+	z-index: 999;
+	color: black;
+}
+
+.form form {
+	margin-left: 25px;
+	margin-top: 40px;
+}
+
+.form table td{
+	padding-bottom: 20px; 
+}
+
+.form input[type="text"] {
+	position: absolute;
+	right: 100px;
+	border-color: #e0edf9;
+	border-radius: 5px;
+}
+
+.menu {
+	position: absolute;
+	left: 400px;
+	bottom: 10px;
+}
+
+.menu td {
+	padding-left: 20px;
+	font: 20px/1.5em Trebuchet MS, serif;
+}
+
+.menu td a:link {
+	text-decoration: none;
+	color: black;
+}
+
+.menu td a:visited {
+	text-decoration: none;
+	color: black;
+}
+
+.menu td a:hover {
+	text-decoration: none;
+	color: #4493d9;
+}
+
+.menu td a:active {
+	text-decoration: none;
+	color: black;
+}
+
+.baner {
+	height: 65px; 
+	width: 470px;
+	position: absolute;
+	top: 20px;
+	left: 450px;
+	border: 3px solid white;
+	outline: 1px solid #eef3f6;
+	background: #eef3f6;
+}
+
+.baner .title {
+	position: relative;
+	top: 20px;
+
+	color: black;
+	font-size: 29pt;
+	font-family: Arial;
+	font-style: italic;
+}
+
+.login {
+	position: absolute;
+	right: 70px;
+	top: 10px;
+}
+
+.login .text {
+	margin-left: 20px;
+}
+
+.login input[type="text"] {
+	height: 24px;
+	width: 90px;
+	border: 1px solid #98a7b5;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.login input[type="password"] {
+	height: 24px;
+	width: 90px;
+	border: 1px solid #98a7b5;
+	border-radius: 10px;
+	padding: 5px;
+}
+
+.login input[type="text"]:focus {
+	outline: none;
+}
+
+.login input[type="submit"] {
+	height: 24px;
+	width: 50px;
+	color: #fef4e9;
+	border: solid 1px #2979c1;
+	background: #4091d8;
+	background: -webkit-gradient(linear, left top, left bottom, from(#76b2e5), to(#4091d8));
+	background: -moz-linear-gradient(top,  #76b2e5,  #4091d8);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#76b2e5', endColorstr='#4091d8');
+}
+
+.login input[type="button"]:active {
+	color: #FFFFFF;
+	background: -webkit-gradient(linear, left top, left bottom, from(#7fbff6), to(#3379b6));
+	background: -moz-linear-gradient(top,  #7fbff6,  #3379b6);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#7fbff6', endColorstr='#3379b6');
+}
+
+.login .link {
+	position: absolute;
+	left:130px;
+}
+
+.link a:link {
+	color: blue;	
+}
+
+.link a:hover {
+	color: blue;	
+}
+
+.link a:active {
+	color: blue;	
+}
+
+.link a:visited {
+	color: blue;	
+}
+
+.wrap {
+	position: relative;
+	background: #f3f6f8;
+	height: 100%;
+	width: 100%;
+}
+
+.wrap .leftcolum {
+	background: white;
+	position: absolute;
+	height: 1480px;
+	width: 250px;
+	left: 60px;
+	border-right: 1px solid #c5cfdc;
+}
+
+.wrap .list {
+	color: #5ea3df;
+	font: 17px/1.5em Arial;
+	font-weight: bold;
+	margin-top: 50px;
+	cursor: pointer;
+}
+
+.wrap .list .title {
+	cursor: default;
+}
+
+.wrap .list li {
+	list-style-type: none;
+}
+
+.wrap .list li {
+	border-bottom: 1px solid #5ea3df;
+	padding-top: 15px; 
+}
+
+.wrap .list li ul li:nth-last-child(1){
+	border: 1px solid white;
+}
+
+.wrap .list li ul li:hover {
+	background: #CCCCCC;
+}
+
+.wrap .list li ul li a{
+	text-decoration: none;
+	color: #5ea3df;
+}
+
+.wrap .list li ul li a{
+	text-decoration: none;
+	color: #5ea3df;
+}
+
+.wrap .rightcolum {
+	position: absolute;
+	background: #3f5467;
+	height: 1480px;
+	width: 250px;
+	right: 60px;
+	border-right: 1px solid #c5cfdc;
+}
+
+.list li ul{
+	display: none;
+}
+	
+.ad {
+	position: absolute;
+	left: 10px;
+	top: 100px;
+	color: white;
+	font: 19px/1.5em Times New Roman, serif;
+	font-weight: bold;
+}
+
+.reviews {
+	position: absolute;
+	bottom: 800px;
+	left: 10px;
+	color: white;
+	font: 19px/1.5em Times New Roman, serif;
+	font-weight: bold;
+}
+
+.center {
+	position: absolute;
+	left: 330px;
+	top: 20px;
+	width: 522px;
+}
+
+.center .title {
+	color: #5ea3df;
+	font: 19px/1.5em Times New Roman, serif;
+	font-weight: bold;
+}
+
+.square {
+	background: #ebf0f3;
+	height: 15px;
+	width: 510px;
+	position: absolute;
+	top: 7px;
+	left: 105px;
+}
+
+#close {
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	padding: 5px;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	cursor: pointer;
+}

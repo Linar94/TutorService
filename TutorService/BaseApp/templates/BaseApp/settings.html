@@ -1,0 +1,21 @@
+{% extends 'BaseApp/application.html' %}
+
+{% block settings %}
+        <div>
+            <form action="{% url  'tutor_service:settings' %}" enctype="multipart/form-data" method="POST">{% csrf_token %}
+                {{custom_user_form.as_p}}
+                <img src="/media/{{ user.avatar }}" width="20%"/><br>
+                {{tutor_form.as_p}}
+                {% for d in add_form %}
+                    {{d.as_p}}
+                {% endfor %}
+                <input type="submit" value="Save"/>
+            </form>
+        </div>
+
+{% endblock %}
+{% block add %}
+        <div style="float: right">
+            <p><a href="{% url 'tutor_service:add_subject' %}">Add Subject</a></p>
+        </div>
+{% endblock %}

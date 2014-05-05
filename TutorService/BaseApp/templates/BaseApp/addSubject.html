@@ -1,0 +1,18 @@
+{% extends 'BaseApp/application.html' %}
+
+{% block add %}
+        <div>
+            {% for add in subject_list.additional_information_set.all %}
+                        <p>{{add.subject_name}}</p>
+                        <p>{{add.section}}</p>
+                        <p>{{add.additions}}</p>
+                        <p>{{add.pupil_category}}</p>
+                        <p>{{add.price}}</p>
+                    <hr style=" border-width: 1px; border-color:#ffc33d; margin-right: 400px;">
+            {% endfor %}
+            <form action="{% url 'tutor_service:add_subject' %}" method="post">{% csrf_token %}
+                    {{add_form.as_p}}
+                    <input type="submit" value="Save"/>
+            </form>
+        </div>
+{% endblock %}

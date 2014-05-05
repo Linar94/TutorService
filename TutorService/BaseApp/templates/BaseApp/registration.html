@@ -1,0 +1,36 @@
+{% extends 'BaseApp/application.html' %}
+
+{% block mainarea %}
+{% if user.is_anonymous %}
+            <form action="{% url 'tutor_service:login' %}" method="POST">{% csrf_token %}
+                <span class="text">Логин:</span>
+                <span class="text">Пароль:</span>
+                <br><input type="text" name="username">
+                <input type="password" name="password">
+                <input type="submit" value="Вход">
+            </form>
+				<br><span class="link"><a href="{% url 'tutor_service:registration' %}" id="reg">Регистрация</a></span>
+				<br><span class="link"><a href="#">Забыли пароль?</a></span>
+     {% endif %}
+{% endblock %}
+
+
+{% block registration %}
+{% if error_message %}
+    <p class="alert alert-error" id="error">{{ error_message }}</p><br/><br/>
+{% else %}
+    <br><br>
+{% endif %}
+<form method="POST" action="{% url 'tutor_service:registration' %}" enctype="multipart/form-data">{% csrf_token %}
+    <div>
+        {{reg_form.as_p}}
+         <div class="tutor">
+             <input type="text" name="first_name" placeholder="Имя"><br><br>
+             <input type="text" name="patronymic" placeholder="Отчество">
+            {{tutor_form.as_p}}
+            {{add_form.as_p}}
+        </div>
+        <input type="submit" value="Register"/>
+    </div>
+</form>
+{% endblock%}
